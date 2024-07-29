@@ -1,0 +1,31 @@
+# 패스워드 비번 확인
+'https://accounts.interpark.com/login/submit' 에서 로그인 확인
+### Header
+|key|value|
+|------|---|
+|Content-type|x-www-form-urlencoded|
+|x-requested-with|XMLHttpRequest|
+|Referer|https://accounts.interpark.com/login/form|
+
+### Body
+|key|value|
+|------|---|
+|postProc|FULLSCREEN|
+|LOGIN_TP|1500|
+|formSVC|inpark|
+|bizId|15|
+|userId|아이디|
+|userPwd|페스워드|
+|captcha_text|자동입력방지 문자(https://accounts.interpark.com/captcha-image?number)|
+
+# 
+# 정보 API
+### Cookie
+|key|value|
+|------|---|
+|id_token|토큰|
+
+|info|type|api|
+|------|---|--|
+|유저정보|GET|https://www.interpark.com/_next/data/CQci7lqPuZOYI4_CbXD9M/mypage.json|
+|lpoint|POST|https://www.interpark.com/api/member/point/nolpoint|
