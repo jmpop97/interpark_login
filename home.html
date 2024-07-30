@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>인터파크</title>
+    <link rel=“shortcut icon” href=“//openimage.interpark.com/UI/favicon/int_favicon.ico”>
+    <meta name="viewport"
+          content="user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, width=device-width, target-densitydpi=medium-dpi"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=9">
+    
+
+    <link href="./resources/css/common.css?t=1722302006" rel="stylesheet">
+    <link href="./resources/css/login_iframe.css?t=1722302006" rel="stylesheet">
+    <script src="./resources/js/jquery-3.3.1.min.js"></script>
+    <script src="./resources/js/placeholders.min.js"></script>
+    <script src="./resources/js/html5.js"></script>
+    <script src="./resources/js/respond.min.js"></script>
+    <script src="./resources/js/fastclick.js"></script>
+    <script src="//www.interpark.com/static/js/egs/egs_common.js"></script>
+
+
+    <!--[if lt IE 9]>
+    <script src="/resources/js/plugin/css3-mediaqueries.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+        var postProc = "IFRAME";
+        if (postProc === 'POPUP') {
+            resizeTo(480, 750);
+        }
+
+        /* GA4 공통파라미터 */
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+            'user_id': undefined,
+            'category_1': '공통',
+            'category_2': '공통',
+            'category_3': '공통',
+            'type': 'others',
+            'version': '190001',
+            'object_id': '로그인'
+        });
+
+        /* 기존 GTM UA 파라미터 - 변수 유지하기 위해 세팅 방식 변경 향후 ua 제거시 제거*/
+        var _iegs_guif = __egsUtil.cookies.get("IEGS_GUIF").split('$') || [];
+        var grdNM = '';
+        switch (_iegs_guif[0]) {
+            case '01': grdNM = 'Welcome'; break;
+            case '10': grdNM = 'Welcome'; break;
+            case '11': grdNM = 'Family'; break;
+            case '12': grdNM = 'VIP'; break;
+            case '13': grdNM = 'VVIP'; break;
+        }
+
+        window.dataLayer.push({
+            'uid': (__egsUtil.cookies.get("interparkID")) ? __egsUtil.cookies.get("interparkID") : '',
+            'CD2': _iegs_guif[1],
+            'CD3': '0A' + _iegs_guif[2] + 'P',
+            'CD5': "Welcome",
+            'CD1': '',
+            'CD17': '공통',
+            'CD18': '',
+            'CD19': '',
+            'CD20': '',
+            'Depth1' : '공통',
+            'Depth2' : '로그인'
+        });
+    </script>
+    <script>
+        /* GA4 공통파라미터 gtm.strart */
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f); })(window,document,'script','dataLayer','GTM-MPP5PKHJ');
+
+        /* GTM-UA 공통파라미터 gtm.strart : 향후 ua제거시 제거 */
+        (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+        var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l !== 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-W4M7TGG');</script>
+    <style>
+        input[type=text]::-ms-clear {
+            display: none;
+            width: 0;
+            height: 0;
+        }
+
+        input[type=text]::-ms-reveal {
+            display: none;
+            width: 0;
+            height: 0;
+        }
+
+        input[type=password]::-ms-clear {
+            display: none;
+            width: 0;
+            height: 0;
+        }
+
+        input[type=password]::-ms-reveal {
+            display: none;
+            width: 0;
+            height: 0;
+        }
+
+        .bx_login .captcha .code img.captcha_img {
+            width: 150px;
+            height: 40px;
+            padding: 0;
+            overflow: hidden;
+            float: left;
+            margin: 0 3px 0 0;
+        }
+
+        .applicationProfile {
+            text-align:center;
+            background-color: #4e539a;
+            width: 60px;
+            height: 20px;
+            border: 2px dotted white;
+            margin-bottom:5px;
+            color:white;
+        }
+
+    </style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+    <!-- GTM - GA4 //-->
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MPP5PKHJ" height="0" width="0"  style="display:none;visibility:hidden"></iframe>
+    <!-- GTM - G25 //-->
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W4M7TGG" height="0" width="0"  style="display:none;visibility:hidden"></iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!--header-->
+
+<!--content-->
+
+
+
+
+
+
+
+
+
+
+
+
+<form id="loginFrm" name="loginFrm" method="post" action="/login/submit" data-onsubmit="return false;" onsubmit="return false;" autocomplete="off" data-method="ajax">
+    <input type="hidden" name="_mehotd" value="">
+    <input type="hidden" name="idn" value="">
+    <input type="hidden" name="sc.loginTgt" value="null">
+    <input type="hidden" name="loginTgt" value="null">
+    <input type="hidden" name="type" value="null">
+    <input type="hidden" name="postProc" value="IFRAME">
+    <input type="hidden" name="historyGoCnt" value="null">
+    <input type="hidden" name="historyGoCntCart" value="2">
+    <input type="hidden" name="paramMethod" value="GET">
+    <!--[S]2006-11-23 (황세윤) 추가-개인정보동의-->
+    <input type="hidden" name="reqSite" value="">
+    <!--[E]2006-11-23 (황세윤) 추가-개인정보동의-->
+    <input type="hidden" name="sc.useAppTp" value="02">
+    <!--input type="hidden" name="sc.isIpss" value="Y"-->
+    <input type="hidden" name="pageTp" value="null">
+    <input type="hidden" name="loginError" value="null">
+    <input type="hidden" name="multiEntrYN" value="Y">
+    <input type="hidden" name="captcha" value="">
+    <input type="hidden" name="checkCaptchaText" value="">
+
+    <input type='hidden' id='LOGIN_TP' name='LOGIN_TP' value="1000" />
+    <input type='hidden' id='chk_ippcd' name='chk_ippcd' value="" />
+    <input type='hidden' id='winTarget' name='winTarget' value='self'/>
+    <input type='hidden' id='reqTp' name='reqTp' value='https' />
+    <input type='hidden' id='fromSVC' name='fromSVC' value="incorp" />
+    <input type="hidden" id="retUrl" name="retUrl" value=""  />
+    <input type='hidden' id='snsTp' name='snsTp' value='' />
+    <input type='hidden' id='snsId' name='snsId' value='' />
+    <input type='hidden' id='bizId' name='bizId' value="10" />
+
+
+    <input type="hidden" name="sc.saveMemId" value="">
+    <input type="hidden" id="isAutoLogin" name="isAutoLogin" value="">
+
+
+    <div id="loginWrap">
+        <div class="contentsWrap">
+            <div class="loginFieldWrap">
+                
+                
+                
+                <ul>
+                    <li>
+                        <div class="styleInput">
+                            <input id="userId" name="userId" type="text" class="iInput" placeholder="아이디" aria-label="아이디" value=""
+                                   tabindex="1" maxlength="100" onkeyup="IPK_MEMBER.event.remove_blank(this)">
+                            <span class="delBtn" style="display: none;"></span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="styleInput">
+                            <input id="userPwd" type="password" class="iInput" name="userPwd" placeholder="비밀번호" aria-label="비밀번호" tabindex="2">
+                            <span class="delBtn" style="display: none;"></span>
+                        </div>
+                    </li>
+                </ul>
+
+                <div class="capchaCodeWrap captchaWrap" style="display: none;">
+                    <div class="iframe">
+                        <img id="oCaptchaFrame" class="captcha_img" data-src="/cpt" data-isc="true" width="150" height="40"/>
+                        <div class="refresh">
+                            <button type="button" id="captcha_reload" aria-label="새로고침">새로고침</button>
+                        </div>
+                    </div>
+                    <div class="styleInput">
+                        <input type="text"  name="oCheckCaptcha"  id="oCheckCaptcha" class="iInput" placeholder="자동입력 방지문자" aria-label="자동입력 방지문자" maxlength="6" onkeyup="IPK_MEMBER.event.remove_blank(this)"> </div>
+                </div>
+
+                <p class="error" style="display:none;">비빌번호 5회 입력 오류로 로그인이 제한되었습니다.<br><span>비밀번호찾기</span>로 해제하세요.</p>
+                <div class="loginBtn">
+                    <input type="button" id="btn_login" class="btnBlue" alt="로그인" value="로그인" aria-label="로그인" >
+                </div>
+                <div class="loginCheck">
+                    <div class="checkStyle">
+                        <input type="checkbox" id="saveSess" name="saveSess" value="N">
+                        <label for="saveSess">자동로그인</label>
+                    </div>
+                    <div class="checkStyle">
+                        <input type="checkbox" id="saveId" name="saveId"  value="N">
+                        <label for="saveId">아이디저장</label>
+                    </div>
+                    <p class="maintain loginNotice">개인정보보호를 위해 <span class="point">개인PC에서만 사용하세요.</span>
+                        <a href="https://ticket.interpark.com/HelpDesk/FAQSearch.asp?FaqKind=QT009" class="btnHelp" target="_blank">도움말</a>
+                    </p>
+                </div>
+            </div>
+            <div class="snsLoginWrap">
+                <a href="javascript:snsAuthPopup('naver');" class="openid naver">
+                    <span>네이버 로그인</span>
+                </a>
+                <a href="javascript:snsAuthPopup('kakao');" class="openid kakao">
+                    <span>카카오 로그인</span>
+                </a>
+                
+                <div class="listType">
+                    <ul>
+                        <li>개인정보 보호를 위해 공용 PC에서 사용 후 SNS 계정의 로그아웃 상태를 반드시 확인해주세요.</li>
+                        <li><strong>쇼핑/도서</strong> 서비스도 이용하셨다면 이동하여 로그아웃 상태를 반드시 확인해주세요.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="findInfoWrap">
+                <a data-set='{"action":"find_id", "target":"popup"}' class="ipk_member" style="cursor: pointer;" role="button">아이디 찾기</a>
+                <span class="bar"></span>
+                <a data-set='{"action":"find_pw", "target":"popup"}' class="ipk_member" style="cursor: pointer;" role="button">비밀번호 찾기</a>
+                <span class="bar"></span>
+                <a class="join ipk_member" style="cursor: pointer;" role="button" data-set="{&quot;action&quot; : &quot;join_page&quot;, &quot;target&quot; : &quot;parent&quot;, &quot;profile&quot; : &quot;RELEASE&quot;}">회원가입</a>
+            </div>
+            
+            <div style="padding-top: 20px;" id="popupBanner">
+                <script type="text/javascript">
+                    document.domain="127.0.0.1";
+                    var postProc = /*IFRAME*/ "";
+
+                    //if(postProc === 'POPUP' || (window.parent.opener && window.parent.opener !== window.parent) ) { //포탈사이트(네이버,등)에서 검색을 통해 들어온 경우 광고노출됨.
+                    try {
+                        if(postProc === 'POPUP' || window.parent.location.href.indexOf("isPopup=Y") > -1 ) {
+                            document.write('<script src=\"//addb.interpark.com/RealMedia/ads/adstream_jx.ads/www.interpark.com/www.interpark.com/pc/login_popup/420x124@x01\"><\/script>');
+                        }
+                    } catch (e) {
+                    }
+                </script>
+            </div>
+        </div>
+    </div>
+    <script src="/resources/js/login.js"></script>
+    <!-- 회원로그인폼 -->
+    <script language="JavaScript">
+        <!--
+        function showNoticeMsgs(msgs) {
+            var tDiv;
+            var showHtml;
+
+            showHtml = "";
+            for (var i = 0; i < msgs.length; i++) {
+                if(showHtml != "") {
+                    showHtml += " | ";
+                }
+                showHtml += msgs[i];
+            }
+            top.status = showHtml;
+
+        }
+
+        //-->
+    </script>
+    <script language="JavaScript">
+        <!--
+
+        try {
+            // 마지막으로 사용된 sc 설정
+            setLastReqScQueryUri("");
+            var _footerJs_noticeMsgs = new Array();
+
+            top.showNoticeMsgs(_footerJs_noticeMsgs);
+        } catch (ignore) {
+        }
+
+        //-->
+    </script>
+
+</form>
+<form name="frmUserDorm" method="post" action="https://incorp.interpark.com/member/checkCert.do";>
+    <input type="hidden" name="_method" value="totalCertify">
+    <input type="hidden" name="mbrId" value="">
+    <input type="hidden" name="mbrInfo" value="">
+    <input type="hidden" name="type" value="userDorm">
+</form>
+<script src="./resources/js/jquery.ajaxSubmit.min.js"></script>
+<script src="./resources/js/member.pc.common.js?t=1722302006"></script>
+<SCRIPT LANGUAGE="JavaScript">
+    <!--
+    function doLogin() {
+        var f = document.getElementById("loginFrm");
+//		f.submit();
+        return true;
+    }
+
+    function doLoginCancel() {
+        top.location.replace("https://smshop.interpark.com/my/shop/index.html?mwm1=common&mwm2=header&mwm3=my");
+    }
+
+    document.onkeyup = proces;
+
+    function proces() {
+        var f = document.getElementById("loginFrm");
+        if(f.userPwd.value === '') {
+            $('#ipLogin').addClass("off")
+        } else {
+            $('#ipLogin').removeClass("off")
+        }
+    }
+
+    //-->
+</SCRIPT>
+<script type="text/javascript">
+    $(document).ready(function () {
+        document.domain="127.0.0.1";
+
+        $('#saveSess,#saveId').click(function(){
+            $(this).val($(this).is(':checked')?'Y':'N');
+        });
+
+        $("#showBtn").click(function () {
+            $(this).css("display", "none");
+            $("#hideBtn").css("display", "block");
+            $("#keyContent").css("display", "block");
+        });
+
+        $("#hideBtn").click(function () {
+            $(this).css("display", "none");
+            $("#showBtn").css("display", "block");
+            $("#keyContent").css("display", "none");
+        });
+
+        $(".closeBtn").click(function () {
+            $(".qPopup").css('display', 'none');
+        });
+
+        $("#oAuthPop").click(function () {
+            $("#Wrap").css("display", "none");
+            $("#header").css("display", "none");
+            $("#oAuthServicePop").css("display", "block");
+
+        });
+
+        $(".pop-close").click(function () {
+            $("#oAuthServicePop").css("display", "none");
+            $("#Wrap").css("display", "block");
+            $("#header").css("display", "block");
+
+        });
+
+        $(".spot").click(function () {
+            document.location.href = 'https://tour.interpark.com/global/oauth/Logingw.aspx?retURL=https%3A%2F%2Fsmshop.interpark.com%2Fmy%2Fshop%2Findex.html%3Fmwm1%3Dcommon%26mwm2%3Dheader%26mwm3%3Dmy';
+        });
+        $('input[type=text]').focus(function () {
+            $(this).parent().addClass('on');
+        });
+        $('input[type=text]').blur(function () {
+            $(this).parent().removeClass('on');
+        });
+        /*
+      $('input[type=text]').focus(function() {
+        $('.id').addClass('on');
+      });
+      $('input[type=text]').blur(function() {
+        $('.id').removeClass('on');
+      });
+        */
+        $('input[type=password]').focus(function () {
+            $('.pass').addClass('on');
+        });
+        $('input[type=password]').blur(function () {
+            $('.pass').removeClass('on');
+        });
+        $('.tInput').each(function () {
+            var $this = $(this);
+            var clearBt = $this.next('.delBtn');
+
+            $(window).on('load', function () {
+                clearBt.hide();
+            });
+
+            $this.keyup(function () {
+                clearBt.toggle(Boolean($(this).val()));
+            });
+
+            clearBt.toggle(Boolean($this.val()));
+            clearBt.on('click', function () {
+                $this.val('').focus();
+                $(this).hide();
+            });
+        });
+
+    });
+
+    $(document).on("click", "#captcha_reload", function () {
+        const src_tmp = ($('#oCaptchaFrame').attr('src').split("?"))[0];
+        const timestamp = new Date().getTime();
+        $('#oCaptchaFrame').attr('src','');
+        $('#oCaptchaFrame').attr('src', src_tmp + "?" + timestamp);
+    });
+
+    var snsActionTp = "";
+    var sns_tp = "";
+
+    function snsAuthPopup(snsTp) {
+        try {
+            EsLogMinor.sendLog({
+                "tagging": EGS_EVENT_TAGGING,
+                "action": "login",
+                "site": __EGS_DATAOBJ.site,
+                "section_id": "login_" + snsTp
+            });
+        } catch (e) {
+        }
+
+        // 인증통합에서 처리한다.
+        var popUrl = ["/openid/init?snsTp=", snsTp, "&reqSite=90&saveSess=", $("#saveSess").val()].join("");
+
+        window.open(popUrl, "snsPopup", getPopPosition( 370, 360 ));
+    }
+
+    function userDormPopup(){
+        var url = "https://incorp.interpark.com/member/checkCert.do";
+
+        window.open(url, "userDormPopup", "width=340,height=330,scrollbars=yes");
+        document.frmUserDorm.target = "userDormPopup";
+        document.frmUserDorm.submit();
+    }
+
+    function blockIdPopUp(mbrId, mbrInfo) {
+        var POPUP_URL = "https://incorp.interpark.com/member/login.do?_method=loginlimitPopup&mbrId=" + encodeURIComponent(mbrId) + "&mbrInfo=" + encodeURIComponent(mbrInfo);
+        window.open(POPUP_URL, 'userDormPopup', 'width=340,height=330,scrollbars=yes');
+    }
+
+    function getPopPosition( _w, _h, _optStr ) {
+        var w		= _w;						//팝업사이즈 너비
+        var h		= _h;						//팝업사이즈 높이
+
+        var popX, popY;
+        if( self.innerWidth&&self.innerHeight ) { // IE
+            //IE 외
+            popX	= window.screenLeft + ((self.innerWidth)-(w/2)) -100;
+            popY	= window.screenTop + ((self.innerHeight)-(h/2)) - 350;
+            if(popY > self.innerHeight || popY < 0) {
+                popY = self.innerHeight / 2 - 150;
+            }
+        }else if( document.body.clientWidth&&document.body.clientHeight ) {
+            // IE
+            popX	= window.screenLeft + ((document.body.clientWidth-w)/2);
+            popY	= window.screenTop - ((document.body.clientHeight-h)/2);
+        }else if(document.documentElement.clientWidth && document.documentElement.clientHeight) {
+            //IE 6 Strict
+            popX	= window.screenLeft + ((document.documentElement.clientWidth-w)/2);
+            popY	= window.screenTop + ((document.documentElement.clientHeight-h)/2);
+        }
+
+        var popOption = "left="+popX+", top="+popY+", width="+w+", height="+h;
+        var optStr = _optStr;
+        if( optStr===undefined ) {
+            popOption += ", resizable=no, scrollbars=yes, status=no, toolbar=0,location=0,directories=0,menubar=0;";
+        } else {
+            popOption +=optStr;
+        }
+
+        return popOption;
+    }
+
+    function receiveSnsResponse(id, email, name, loginResult, snsJoinYn, joinResUrl) {
+        if(loginResult === 'Y') {
+            if(snsJoinYn === 'Y' && joinResUrl) {
+                try {
+                    window.open(joinResUrl); // 새창 회원가입 완료 페이지 오픈.
+                } catch (e) {}
+            }
+
+            // 로그인 되어 넘어 왔다면...
+            $("#snsTp").val(sns_tp);
+            $("#snsId").val(id);
+            if( snsActionTp==="") {
+                // 로그인.
+            } else {
+                // 가입.
+            }
+            var postProc = "IFRAME";
+            var originUrl = "";
+
+            if (postProc === "IFRAME") {
+                // IFRAME 으로 로그인페이지 처리 될때
+                try {
+                    if (window.parent.location.href.indexOf('https://') >= 0)
+                        originUrl = originUrl.replace('http://', 'https://');
+                } catch (e) {
+                    originUrl = originUrl.replace('https://', 'http://');
+                }
+
+                try {
+                    window.parent.location.replace(originUrl);
+                } catch (e) {
+                    // alert(e);
+                }
+            } else if (postProc === "NONE"
+                || (postProc === "POPUP" && originUrl.indexOf("_method=popupClose") >= 0)) {
+                // 현재 페이지 처리 이거나,
+                // 팝업 이지만 후처리가 필요해서 origin 으로 리다이렉트 되어야 할 때
+                if (postProc === "POPUP") {
+                    // cross-origin 익셉션 발생을 체크해서 부모창과 프로토콜을 맞춰서 리다이렉트 한다.
+                    try {
+                        var opener_href = window.opener.location.href;
+                        // 인증통합은 항상 https 이기 때문에 익셉션 발생을 하지 않았다면 부모창은 https 인거다...
+                        originUrl = originUrl.replace('http://', 'https://');
+                    } catch (e) {
+                        // 인증통합은 항상 https 이기 때문에 익셉션 발생 했다면 부모창은 http 인거다...
+                        originUrl = originUrl.replace('https://', 'http://');
+                    }
+                }
+                window.location.replace(originUrl);
+            } else {
+                // 팝업일때 처리
+                window.opener.location.replace(originUrl);
+                window.close();
+            }
+        }
+    }
+
+    function blockIdPopup(recertMthd, mbrId, mbrInfo) {
+        if(recertMthd === "05" || recertMthd === "07") {
+            $(".error").removeClass('lock').html('로그인이 제한된 계정입니다.\n관련 문의는 고객센터(1544-1555)를 통해 연락주세요!').show();
+        } else if(recertMthd === "08") {
+            var loginLimitUrl = "https://incorp.interpark.com/member/login.do?_method=loginLimitDupleCert&mbrId=" + encodeURIComponent(mbrId) + "&mbrInfo=" + encodeURIComponent(mbrInfo);
+            if(window.self !== window.top) { // iframe 일때 부모창 이동
+                window.parent.location.href = loginLimitUrl;
+            } else {
+                window.location.href = loginLimitUrl;
+            }
+        } else {
+            $(".error").removeClass('lock').html('비정상적인 접속 시도로 계정 보호를 위해 로그인 잠김처리 되었습니다. <span id="userDormPopup" style="cursor:pointer;color: #ef3e42;">본인확인 및 비밀번호 재설정</span>').show();
+            $("#userDormPopup").click(function(){blockIdPopUp(mbrId, mbrInfo);});
+            var POPUP_URL = "https://incorp.interpark.com/member/login.do?_method=loginlimitPopup&mbrId=" + encodeURIComponent(mbrId) + "&mbrInfo=" + encodeURIComponent(mbrInfo);
+            window.open(POPUP_URL, 'userDormPopup', 'width=340,height=330,scrollbars=yes');
+        }
+    }
+
+    function blockIpMessage() {
+        $(".error").removeClass('lock').html('비정상적인 접속시도가 탐지되어 계정보호를 위해<br>로그인 잠김처리 되었습니다. 자세한 사항은 고객센터로 문의해주세요.').show();
+    }
+
+</script>
+<script>
+    var EGS_ACTION_TAGGING = "inter.action.view";
+    var EGS_EVENT_TAGGING = "inter.event.click";
+    var __EGS_DATAOBJ = {
+        "tagging": EGS_ACTION_TAGGING,
+        "action": "login"
+    };
+
+    switch ($('input[id=LOGIN_TP]').val()) {
+        case "1090":
+            __EGS_DATAOBJ.site = "inter.pcweb";
+            break;
+        case "2090":
+            __EGS_DATAOBJ.site = "shop.pcweb";
+            break;
+        case "3090":
+            __EGS_DATAOBJ.site = "book.pcweb";
+            break;
+        case "5090":
+            __EGS_DATAOBJ.site = "ticket.pcweb";
+            break;
+        case "6090":
+            __EGS_DATAOBJ.site = "tour.pcweb";
+            break;
+        default:
+            __EGS_DATAOBJ.site = "inter.pcweb";
+    }
+
+    try {
+        EsLogMinor.sendLog();
+    } catch (e) {
+    }
+
+</script>
+
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-28585185-1', 'interpark.com');
+    ga('send', 'pageview');
+
+</script>
+<iframe src="about:blank" name="hiddenFrame" width="0" height="0" style="display:none"></iframe>
+</body>
+</html>
