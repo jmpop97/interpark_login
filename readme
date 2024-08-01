@@ -5,6 +5,8 @@
 2.
 # 패스워드 비번 확인
 'https://accounts.interpark.com/login/submit' 에서 로그인 확인
+09가 나오는 이유는 시간 초과이다 => 5분 시간 측정을 어떤것으로 하는 건지 확인이 필요
+cookie를 제거해서 돌렸을때도 로그인이 된다=> cookie이슈는 아님
 ### Header
 |key|value|
 |------|---|
