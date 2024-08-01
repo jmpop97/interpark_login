@@ -9,6 +9,7 @@ import (
 	"net/http"
 	"net/url"
 	"os"
+	"time"
 )
 
 type InputValue struct {
@@ -18,11 +19,12 @@ type InputValue struct {
 }
 
 func main() {
-	var info InputValue
-	info = input2()
+	// var info InputValue
+	// info = input2()
 	// log_in(info)
 	// check_login()
-	check_login_mypage(info)
+	// check_login_mypage(info)
+	create_pcid()
 }
 
 func input1() InputValue {
@@ -122,4 +124,9 @@ func log_in(info InputValue) {
 	data := string(body)
 
 	log.Println(data, headers)
+}
+
+func create_pcid() {
+	var PCID = time.Now().UnixNano()
+	fmt.Println(PCID)
 }

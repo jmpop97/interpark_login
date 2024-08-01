@@ -1,3 +1,8 @@
+#XMLHttpRequest
+1.https://es.interpark.com/elog/inter.action.view
+</br>
+"{"action":"login","site":"inter.pcweb","client_ip":"","section_id":"","category_no":"","item_no":"","item_price":"","sale_price":"","search":"","order_no":"","coupon_no":"","uid":"","pcid":"???","ippcd":"","url":"https://accounts.interpark.com/login/form","url_ref":""}"
+2.
 # 패스워드 비번 확인
 'https://accounts.interpark.com/login/submit' 에서 로그인 확인
 ### Header
