@@ -19,11 +19,12 @@ type InputValue struct {
 }
 
 func main() {
-	// var info InputValue
-	// info = input2()
-	// log_in(info)
+	var info InputValue
+	info = input2()
+	log_in(info)
 	// check_login()
 	// check_login_mypage(info)
+	// create_pcid()
 	create_pcid()
 }
 
