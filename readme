@@ -1,12 +1,11 @@
-#XMLHttpRequest
-1.https://es.interpark.com/elog/inter.action.view
-</br>
-"{"action":"login","site":"inter.pcweb","client_ip":"","section_id":"","category_no":"","item_no":"","item_price":"","sale_price":"","search":"","order_no":"","coupon_no":"","uid":"","pcid":"???","ippcd":"","url":"https://accounts.interpark.com/login/form","url_ref":""}"
-2.
+#연결 (5분제한)
+1.https://www.interpark.com/
 # 패스워드 비번 확인
 'https://accounts.interpark.com/login/submit' 에서 로그인 확인
-09가 나오는 이유는 시간 초과이다 => 5분 시간 측정을 어떤것으로 하는 건지 확인이 필요
-cookie를 제거해서 돌렸을때도 로그인이 된다=> cookie이슈는 아님
+09가 나오는 이유는 시간 초과이다.
+1.에서 pc값을 저장해둔다.
+userId,userPwd 필요
+
 ### Header
 |key|value|
 |------|---|
@@ -17,16 +16,16 @@ cookie를 제거해서 돌렸을때도 로그인이 된다=> cookie이슈는 아
 ### Body
 |key|value|
 |------|---|
-|postProc|FULLSCREEN|
-|LOGIN_TP|1500|
-|formSVC|inpark|
-|bizId|15|
 |userId|아이디|
 |userPwd|페스워드|
 |captcha_text|자동입력방지 문자(https://accounts.interpark.com/captcha-image?number)|
 
-# 
+#get_callback_url
+3.submit에서 받은 JSESIONID을 callback_url로 cookie 값으로 보내면 id_token 제공 받는다
 # 정보 API
+
+https://www.interpark.com/_next/data/CQci7lqPuZOYI4_CbXD9M/mypage.json(삭제됨)
+4. https://www.interpark.com/mypage의 cripts에서 데이터를 같이 제공 받는다. 
 ### Cookie
 |key|value|
 |------|---|

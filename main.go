@@ -18,15 +18,16 @@ type InputValue struct {
 }
 
 func main() {
-	var info InputValue
-	info = input2()
-	create_JSESSIONID()
 	var callback_url string
 	var JSESSIONID string
 	var id_token string
+	var info InputValue
+
+	info = input1()
+	create_connection()
 	callback_url, JSESSIONID = get_callback_url(info)
 	id_token = login(callback_url, JSESSIONID)
-	fmt.Println("id_token = " + id_token)
+	check_login_mypage(id_token)
 }
 
 func input1() InputValue {
@@ -53,7 +54,6 @@ func check_login_lpoint() {
 	// bodyData := url.Values{}
 	req, _ := http.NewRequest("POST", check_log_in_api, nil)
 	req.Header.Add("Cookie", "id_token=;")
-	log.Println((req))
 	resp, err := client.Do(req)
 	if err != nil {
 		log.Fatalln(err)
@@ -61,26 +61,53 @@ func check_login_lpoint() {
 	defer resp.Body.Close()
 }
 
-func check_login_mypage(info InputValue) {
-	check_log_in_api := "https://www.interpark.com/_next/data/CQci7lqPuZOYI4_CbXD9M/mypage.json"
+func check_login_mypage(id_token string) string {
+	check_log_in_api := "https://www.interpark.com/mypage"
 	client := &http.Client{}
 	// bodyData := url.Values{}
 	req, _ := http.NewRequest("GET", check_log_in_api, nil)
-	req.Header.Add("Cookie", "id_token="+info.IdToken+";")
+	req.Header.Add("Cookie", "id_token="+id_token+";")
 	resp, err := client.Do(req)
 	if err != nil {
 		log.Fatalln(err)
 	}
 	defer resp.Body.Close()
-	headers := resp
 	body, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
 		log.Fatalln(err)
 	}
 
-	data := string(body)
+	datas := string(body)
 
-	log.Println(data, headers)
+	var data string
+	data = filter_name(datas)
+	return data
+}
+
+func filter_name(datas string) string {
+	var end = len(datas)
+	var korean []rune = []rune(datas)
+	var check []rune = []rune(`"memNm":"`)
+	var start = 0
+	for i := 0; i < end && start < 8; i++ {
+		for j := 0; i < end && j < 9; j++ {
+			if korean[i] == check[j] {
+				i++
+				if j == 8 {
+					start = i
+				}
+			} else {
+				start = 0
+				break
+			}
+		}
+	}
+	fmt.Printf(" 안녕하세요. ")
+	for i := start; korean[i] != check[8]; i++ {
+		fmt.Printf("%c", korean[i])
+	}
+	fmt.Printf("님!")
+	return "test"
 }
 
 func get_callback_url(info InputValue) (string, string) {
@@ -123,7 +150,7 @@ func get_callback_url(info InputValue) (string, string) {
 	return callback_url, JSESSIONID
 }
 
-func create_JSESSIONID() {
+func create_connection() {
 	client := &http.Client{}
 	req, _ := http.NewRequest("GET", "https://accounts.interpark.com/login/form", nil)
 	resp, err := client.Do(req)
