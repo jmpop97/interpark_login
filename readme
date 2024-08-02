@@ -1,3 +1,7 @@
+#사용법
+1. go run .\main.go
+2. .\interpark.exe
+
 #연결 (5분제한)
 1.https://www.interpark.com/
 # 패스워드 비번 확인
