@@ -22,12 +22,13 @@ func main() {
 	var JSESSIONID string
 	var id_token string
 	var info InputValue
-
+	var name string
 	info = input1()
 	create_connection()
 	callback_url, JSESSIONID = get_callback_url(info)
 	id_token = login(callback_url, JSESSIONID)
-	check_login_mypage(id_token)
+	name = check_login_mypage(id_token)
+	alert(name)
 }
 
 func input1() InputValue {
@@ -102,12 +103,11 @@ func filter_name(datas string) string {
 			}
 		}
 	}
-	fmt.Printf(" 안녕하세요. ")
+	var name string
 	for i := start; korean[i] != check[8]; i++ {
-		fmt.Printf("%c", korean[i])
+		name += string(korean[i])
 	}
-	fmt.Printf("님!")
-	return "test"
+	return name
 }
 
 func get_callback_url(info InputValue) (string, string) {
@@ -176,4 +176,8 @@ func login(callback_url string, JSESSIONID string) string {
 		}
 	}
 	return "wrong id"
+}
+
+func alert(name string) {
+	fmt.Printf("안녕하세요 %v 사용자님", name)
 }
